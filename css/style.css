@@ -17,7 +17,12 @@
   background-color: #333;
 }
 
-.card-body {
+.card {
   width: 40rem;
-  height: 12rem;
+  height: 20rem;
+}
+
+.card-header {
+  background-color: rgb(20, 148, 233);
+  color: white;
 }

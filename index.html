@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Truth or Dare</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,22 +14,50 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/background.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Truth or Dare</title>
   </head>
   <body>
+    <div class="animateme">
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
     <div class="container">
       <div class="card text-center">
         <div class="card-header">
-          <h1>Truth or Dare</h1>
+          <h1 class="card-title">Truth or Dare</h1>
           <button id="modeToggle" class="btn btn-link text-secondary">
             <i id="modeIcon" class="bi bi-moon-stars-fill"></i>
           </button>
         </div>
         <div class="card-body">
-          <button id="truthButton" class="btn btn-primary btn-lg mr-3"><i class="bi bi-question-lg"></i>
+          <button id="truthButton" class="btn btn-primary btn-lg mr-3">
+            <i class="bi bi-question-lg"></i>
             Truth
           </button>
-          <button id="dareButton" class="btn btn-danger btn-lg"><i class="bi bi-lightning-charge-fill"></i>Dare</button>
-          <p id="result" class="result">Siap untuk mengungkapkan beberapa rahasia lucu atau menantang dirimu sendiri? Pilih 'Truth' atau 'Dare' dan mari bersenang-senang bersama dalam permainan Truth or Dare kali ini!</p>
+          <button id="dareButton" class="btn btn-danger btn-lg">
+            <i class="bi bi-lightning-charge-fill"></i>Dare
+          </button>
+          <p id="result" class="result card-text">
+            Siap untuk mengungkapkan beberapa rahasia lucu atau menantang dirimu
+            sendiri? Pilih 'Truth' atau 'Dare' dan mari bersenang-senang bersama
+            dalam permainan Truth or Dare kali ini!
+          </p>
         </div>
       </div>
     </div>
