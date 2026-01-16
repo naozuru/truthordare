@@ -18,7 +18,7 @@
     <!-- Custom Style -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="theme-basic">
+  <body class="theme-extreme">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
@@ -34,19 +34,20 @@
         <div class="collapse navbar-collapse" id="navMenu">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html" onclick="localStorage.removeItem('extremeConfirmed')">Home</a>
+
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="basic.html">Basic</a>
+              <a class="nav-link" href="basic.html" onclick="localStorage.removeItem('extremeConfirmed')">Basic</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="couple.html">Couple</a>
+              <a class="nav-link" href="couple.html" onclick="localStorage.removeItem('extremeConfirmed')">Couple</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="kids.html">Kids</a>
+              <a class="nav-link" href="kids.html" onclick="localStorage.removeItem('extremeConfirmed')">Kids</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="extreme.html">Extreme</a>
+              <a class="nav-link active" href="extreme.html">Extreme</a>
             </li>
           </ul>
         </div>
@@ -81,6 +82,42 @@
       </div>
     </main>
 
+    <!-- Modal 18+ Warning -->
+<div class="modal fade" id="ageWarningModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border-danger">
+      <div class="modal-header border-danger">
+        <h5 class="modal-title text-danger">
+          ⚠️ Peringatan Konten 18+
+        </h5>
+      </div>
+      <div class="modal-body text-center">
+        <p class="mb-3">
+          Mode <b>Extreme</b> berisi pertanyaan dan tantangan
+          <b>dewasa</b>, <b>emosional</b>, dan <b>fisik</b>.
+        </p>
+        <p>
+          Dengan melanjutkan, kamu menyatakan bahwa:
+        </p>
+        <ul class="text-start">
+          <li>✔ Berusia <b>18 tahun ke atas</b></li>
+          <li>✔ Bermain secara sadar & bertanggung jawab</li>
+          <li>✔ Siap berhenti jika merasa tidak nyaman</li>
+        </ul>
+      </div>
+      <div class="modal-footer justify-content-center border-danger">
+        <button class="btn btn-danger" id="confirmAgeBtn">
+          Saya 18+ & Lanjutkan
+        </button>
+        <a href="index.html" class="btn btn-outline-light">
+          Keluar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <!-- Footer -->
     <footer class="text-center py-3 footer-fixed">
       <small>© <span id="year"></span> NaoZuru. All rights reserved.</small>
@@ -95,5 +132,28 @@
 
     <!-- TOD Script -->
     <script type="module" src="js/script.js"></script>
+
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const confirmed = localStorage.getItem("extremeConfirmed");
+
+    if (!confirmed) {
+      const modal = new bootstrap.Modal(
+        document.getElementById("ageWarningModal"),
+        { backdrop: "static", keyboard: false }
+      );
+      modal.show();
+
+      document
+        .getElementById("confirmAgeBtn")
+        .addEventListener("click", () => {
+          localStorage.setItem("extremeConfirmed", "true");
+          modal.hide();
+        });
+    }
+  });
+</script>
+
   </body>
 </html>
